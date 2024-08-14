@@ -1,9 +1,9 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from llamaModel import llama3
+from llamaModel import Llama3
 
 
-llama = llama3.Llama3()
+llama = Llama3
 
 app = FastAPI()
 
