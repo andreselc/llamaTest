@@ -21,10 +21,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/llama")
+@app.post("/llama/")
 def llama_model(user_prompt: str):
     return llama.run(user_prompt)
 
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: str = None):
-    return {"item_id": item_id, "q": q}
