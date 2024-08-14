@@ -1,6 +1,9 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from llamaModel import llama3
 
+
+llama = llama3.Llama3()
 
 app = FastAPI()
 
@@ -19,8 +22,8 @@ app.add_middleware(
 )
 
 @app.get("/llama")
-def read_root():
-    return {"Hello": "World"}
+def llama_model(user_prompt: str):
+    return llama.run(user_prompt)
 
 @app.get("/items/{item_id}")
 def read_item(item_id: int, q: str = None):
